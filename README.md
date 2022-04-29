@@ -15,7 +15,7 @@ A simple task manager created with NodeJS and Express
     ```
     npm start
     ```
-5. Visit the site at your browser at port 3000 by default
+5. Visit the site at your browser at port 3000 by default or assign a value to PORT in your env
    ```
    https://localhost/3000
    ```
