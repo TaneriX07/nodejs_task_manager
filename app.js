@@ -3,6 +3,7 @@ const app = express()
 const tasks = require('./routes/tasks')
 const connectDB = require('./db/connect')
 const notFound = require('./middleware/not-found')
+const errorHandler = require('./middleware/error-handler')
 require('dotenv').config() // Read the URI in .env
 
 const PORT = 3000
@@ -21,6 +22,9 @@ app.use('/api/v1/tasks', tasks)
 
 // Return 404 for other routes
 app.use(notFound)
+
+// Catch errors
+app.use(errorHandler)
 
 const start = async () => {
   try {
