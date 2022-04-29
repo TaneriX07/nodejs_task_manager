@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const tasks = require('./routes/tasks')
 const connectDB = require('./db/connect')
+const notFound = require('./middleware/not-found')
 require('dotenv').config() // Read the URI in .env
 
 const PORT = 3000
@@ -17,6 +18,9 @@ app.use(express.json())
 // app.patch('/api/v1/tasks/:id')   - Update a task
 // app.delete('/api/v1/tasks/:id')  - Delete a task
 app.use('/api/v1/tasks', tasks)
+
+// Return 404 for other routes
+app.use(notFound)
 
 const start = async () => {
   try {
